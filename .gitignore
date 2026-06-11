@@ -1,0 +1,42 @@
+# Visual Studio / user state
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Publish / package outputs
+dist/
+*.zip
+*.nupkg
+
+# Logs and diagnostics
+*.log
+*.tlog
+*.pdb
+*.ilk
+*.lastbuildstate
+
+# ReSharper / Rider
+_ReSharper*/
+*.DotSettings.user
+.idea/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+~$*

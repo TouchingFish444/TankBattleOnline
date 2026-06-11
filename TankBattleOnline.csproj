@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE624387-CD47-4431-BCD9-0B826C5D5D90}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TankBattleOnline</RootNamespace>
+    <AssemblyName>TankBattleOnline</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <ApplicationIcon>assets\app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\GameCanvasPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GameHudPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PlayerCardPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PlayerConfigPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoomInfoPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DoubleBufferedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.GameLoop.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.Input.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.Navigation.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.Network.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.NetworkClient.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.NetworkDiagnostics.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.NetworkHost.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.Room.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GameForm.Designer.cs">
+      <DependentUpon>GameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppPage.cs" />
+    <Compile Include="Models\BlockType.cs" />
+    <Compile Include="Models\Bullet.cs" />
+    <Compile Include="Models\ClientRole.cs" />
+    <Compile Include="Models\Direction.cs" />
+    <Compile Include="Models\GameAiController.cs" />
+    <Compile Include="Models\GameBulletSystem.cs" />
+    <Compile Include="Models\GameCollisionSystem.cs" />
+    <Compile Include="Models\GameEngine.cs" />
+    <Compile Include="Models\GameMapGenerator.cs" />
+    <Compile Include="Models\GamePowerUpManager.cs" />
+    <Compile Include="Models\GameResourceManager.cs" />
+    <Compile Include="Models\GameRoundResolver.cs" />
+    <Compile Include="Models\GameState.cs" />
+    <Compile Include="Models\MapBlock.cs" />
+    <Compile Include="Models\LocalNetworkInfo.cs" />
+    <Compile Include="Models\NetworkMessage.cs" />
+    <Compile Include="Models\NetworkManager.cs" />
+    <Compile Include="Models\NetworkProtocol.Input.cs" />
+    <Compile Include="Models\NetworkProtocol.Room.cs" />
+    <Compile Include="Models\NetworkProtocol.State.cs" />
+    <Compile Include="Models\NetworkProtocol.cs" />
+    <Compile Include="Models\PlayerControlType.cs" />
+    <Compile Include="Models\PlayerInput.cs" />
+    <Compile Include="Models\PlayerSlot.cs" />
+    <Compile Include="Models\PowerUp.cs" />
+    <Compile Include="Models\RoomConfig.cs" />
+    <Compile Include="Models\RoomLayoutCalculator.cs" />
+    <Compile Include="Models\RoomManager.cs" />
+    <Compile Include="Models\RoomState.cs" />
+    <Compile Include="Models\Tank.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="assets\app.ico;assets\img\tank\*.gif;assets\img\wall\wall.gif;assets\img\wall\steel.gif;assets\img\wall\grass.gif;assets\img\wall\water.gif;assets\img\fire\tankmissile.gif;assets\img\other\born1.gif;assets\img\other\born2.gif;assets\img\other\born3.gif;assets\img\other\born4.gif;assets\img\other\star.gif;assets\img\other\over.gif;assets\music\start.wav;assets\music\fire.wav">
+      <LogicalName>%(Identity)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
