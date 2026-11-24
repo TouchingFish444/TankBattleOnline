@@ -16,6 +16,11 @@ namespace TankBattleOnline
         private readonly Label lblMode = new Label();
         private readonly Button btnLeaveGame = new Button();
 
+        private static readonly Color NormalValueColor = Color.White;
+        private static readonly Color WarningValueColor = Color.FromArgb(255, 82, 82);
+        private const int TimeWarningSeconds = 10;
+        private const int LowHpPercent = 25;
+
         public event EventHandler LeaveGameClicked;
 
         public GameHudPanel()
@@ -86,6 +91,12 @@ namespace TankBattleOnline
             lblTime.Text = state.RoundOver
                 ? "倒计时：本局结束"
                 : string.Format("倒计时：{0:00}:{1:00}", remainingSeconds / 60, remainingSeconds % 60);
+
+            bool timeWarning = !state.RoundOver && remainingSeconds <= TimeWarningSeconds;
+            bool lowHpWarning = !state.RoundOver && self != null && self.PlayerId == selfPlayerId
+                && self.Hp > 0 && self.Hp * 100 <= self.MaxHp * LowHpPercent;
+            lblTime.ForeColor = timeWarning ? WarningValueColor : NormalValueColor;
+            lblHp.ForeColor = lowHpWarning ? WarningValueColor : NormalValueColor;
 
             string roleText = role == ClientRole.Host ? "主持游戏" : "加入游戏";
             lblMode.Text = "模式：" + roleText + "\r\n连接：" + connectionText;
